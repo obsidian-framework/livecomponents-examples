@@ -1,0 +1,104 @@
+<div live:id="{{ _id }}" class="max-w-3xl mx-auto bg-zinc-900 rounded-lg border border-zinc-800 p-6" xmlns:live="http://www.w3.org/1999/xhtml">
+    <h2 class="text-2xl font-bold text-white mb-6">📝 Todo List</h2>
+    
+    <!-- Add new todo -->
+    <div class="mb-6 flex gap-2">
+        <input 
+            id="newTodoText"
+            type="text" 
+            placeholder="What needs to be done?" 
+            class="flex-1 px-4 py-2 bg-zinc-800 border border-zinc-700 rounded text-white focus:outline-none focus:border-blue-500"
+            value="{{ newTodoText }}"
+        >
+        <button 
+            live:click="addTodo" 
+            class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition"
+        >
+            Add
+        </button>
+    </div>
+    
+    <!-- Filters -->
+    <div class="flex gap-2 mb-4 border-b border-zinc-800 pb-3">
+        <button 
+            live:click="setFilter('all')" 
+            class="px-3 py-1 rounded {% if filter == 'all' %}bg-zinc-700 text-white{% else %}text-gray-400 hover:text-white{% endif %}"
+        >
+            All ({{ totalCount }})
+        </button>
+        <button 
+            live:click="setFilter('active')" 
+            class="px-3 py-1 rounded {% if filter == 'active' %}bg-zinc-700 text-white{% else %}text-gray-400 hover:text-white{% endif %}"
+        >
+            Active ({{ activeCount }})
+        </button>
+        <button 
+            live:click="setFilter('completed')" 
+            class="px-3 py-1 rounded {% if filter == 'completed' %}bg-zinc-700 text-white{% else %}text-gray-400 hover:text-white{% endif %}"
+        >
+            Completed ({{ completedCount }})
+        </button>
+    </div>
+    
+    <!-- Todo items -->
+    <div class="space-y-2">
+        {% if filteredTodos.isEmpty() %}
+            <div class="text-center py-8 text-gray-500">
+                {% if filter == 'all' %}
+                    No todos yet. Add one above! 👆
+                {% elseif filter == 'active' %}
+                    No active todos. Great job! 🎉
+                {% else %}
+                    No completed todos yet.
+                {% endif %}
+            </div>
+        {% else %}
+            {% for todo in filteredTodos %}
+            <div class="flex items-center gap-3 p-3 bg-zinc-800 rounded hover:bg-zinc-750 transition">
+                <button
+                    live:click="toggleTodo({{ todo.id }})"
+                    class="w-5 h-5 rounded border-2 flex items-center justify-center transition
+                        {% if todo.completed %}bg-blue-600 border-blue-600{% else %}border-zinc-600 hover:border-blue-500{% endif %}"
+                >
+                    {% if todo.completed %}
+                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {% endif %}
+                </button>
+                <span class="flex-1 {% if todo.completed %}line-through text-gray-500{% else %}text-white{% endif %}">
+                    {{ todo.text }}
+                </span>
+                <button 
+                    live:click="deleteTodo({{ todo.id }})"
+                    class="px-3 py-1 text-red-400 hover:text-red-300 hover:bg-red-900/20 rounded transition"
+                >
+                    Delete
+                </button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    
+    <!-- Footer -->
+    {% if completedCount > 0 %}
+    <div class="mt-4 pt-3 border-t border-zinc-800 text-right">
+        <button 
+            live:click="clearCompleted" 
+            class="text-sm text-gray-400 hover:text-red-400 transition"
+        >
+            Clear completed ({{ completedCount }})
+        </button>
+    </div>
+    {% endif %}
+    
+    <div live:loading style="display: none;" class="mt-4 text-center">
+        <div class="inline-flex items-center gap-2 text-blue-400">
+            <svg class="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span class="text-sm">Updating...</span>
+        </div>
+    </div>
+</div>
