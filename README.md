@@ -1,60 +1,46 @@
-# Obsidian
+# Obsidian LiveComponents Examples
 
-Obsidian brings modern development conventions to the Spark Java framework. Built on top of Spark, it adds annotation-based routing, fluent database migrations, middleware system, CSRF protection, authentication, and more — all while keeping the simplicity of a micro-framework.
-
-## 🎯 Why this project?
-
-Spark Java is an excellent micro-framework, but it lacks modern conventions. This boilerplate fills the gap by adding:
-
-- **Routing annotations** — no more manually declared routes
-- **Middleware system** — `@Before` and `@After` annotations with built-in middlewares
-- **Fluent migrations** — Laravel-inspired database migrations
-- **Security & Auth** — UserDetailsService abstraction with role-based access control
-- **CSRF protection** — annotation-based CSRF validation
-- **Repository pattern** — automatic dependency injection
-- **Template engine** — Pebble integrated directly into controllers
-- **Flash messages** — temporary notifications without external dependencies
-
-## ✨ Main Features
-
-| Feature | Description |
-|---------|-------------|
-| 🛣️ **Annotation-based routing** | `@GET`, `@POST`, `@PUT`, `@DELETE`, `@PATCH` on your methods |
-| 🔒 **Middleware system** | `@Before` / `@After` with built-in CORS, rate limiting, logging, API keys |
-| 🗃️ **Fluent migrations** | `table.string("title").notNull()` instead of raw SQL |
-| 🔐 **Security & Auth** | `UserDetailsService` + `@HasRole` for role-based protection |
-| 🛡️ **CSRF Protection** | `@CsrfProtect` annotation with automatic token validation |
-| 💉 **Dependency Injection** | Automatically injects your `@Repository` into controllers |
-| 📦 **ActiveRecord models** | ActiveJDBC with getters/setters to manipulate your models cleanly |
-| 🎨 **Integrated templating** | `render("view.html", data)` directly in your controllers |
-| 💬 **Flash messages** | `redirectWithFlash()` for temporary notifications |
-| 🐛 **Custom Error Handler** | Detailed stack traces in dev, clean pages in production |
+> Ready-to-use **LiveComponent** examples for reactive server-side components with Obsidian framework.
 
 ## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/kainovaii/obsidian-skeleton
-cd obsidian-skeleton
+git clone https://github.com/obsidian-framework/livecomponents-examples.git
+cd livecomponents-examples
 ./build.bat
 ```
 
-→ The app runs on `http://localhost:8888`
+## 📦 Examples
 
-## 📦 Tech Stack
+| Example | Features | Description |
+|---------|----------|-------------|
+| **Counter** | `live:click`, `live:confirm`, `live:loading` | Simple interactive counter with increment/decrement |
+| **Todo List** | CRUD, filtering, state management | Full-featured todo app with filters |
+| **Search & Filter** | `live:model`, debouncing, two-way binding | Real-time search with category filters |
+| **Notifications** | Dynamic lists, dismiss actions | Toast-style notification system |
+| **Poll** | Voting, percentages, results | Interactive poll with live results |
+| **Tabs** | Navigation, content switching | Dynamic tab interface |
 
-- **Spark Java** - Web micro-framework
-- **ActiveJDBC** - Lightweight ORM with ActiveRecord pattern
-- **Pebble** - Modern template engine
-- **Maven** - Build & dependency management
+## 💡 What are LiveComponents?
 
-## 📖 Documentation
+Server-side reactive components inspired by Laravel Livewire. Build interactive UIs without JavaScript:
 
-Full documentation is available at `https://obsidian.kainovaii.dev`.
+- ⚡ Real-time updates without page reloads
+- 🔒 Secure by default with CSRF protection
+- 🎨 Server-side rendering with DOM diffing
+- 🚀 Zero JavaScript required
 
-## 🤝 Contributing
+## 🛠️ Requirements
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+- Java 17+
+- Obsidian Framework
+- Maven 3.6+
 
-## 📝 License
+## 📚 Learn More
 
-[MIT](LICENSE)
+- [Obsidian Framework](https://github.com/kainovaii/obsidian-skeleton)
+- [Documentation](https://obsidian.kainovaii.dev)
+
+## 📄 License
+
+MIT
