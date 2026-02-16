@@ -1,13 +1,14 @@
 package fr.kainovaii.obsidian.app.components;
 
-import fr.kainovaii.obsidian.core.web.component.annotations.LiveComponent;
-import fr.kainovaii.obsidian.core.web.component.annotations.State;
+import fr.kainovaii.obsidian.livecomponents.annotations.LiveComponentImpl;
+import fr.kainovaii.obsidian.livecomponents.annotations.State;
+import fr.kainovaii.obsidian.livecomponents.core.LiveComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@LiveComponent
-public class Notification extends fr.kainovaii.obsidian.core.web.component.core.LiveComponent
+@LiveComponentImpl
+public class Notification extends LiveComponent
 {
     @State
     private List<NotificationItem> notifications = new ArrayList<>();

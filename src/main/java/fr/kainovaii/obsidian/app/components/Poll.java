@@ -1,14 +1,15 @@
 package fr.kainovaii.obsidian.app.components;
 
-import fr.kainovaii.obsidian.core.web.component.annotations.LiveComponent;
-import fr.kainovaii.obsidian.core.web.component.annotations.State;
+import fr.kainovaii.obsidian.livecomponents.annotations.LiveComponentImpl;
+import fr.kainovaii.obsidian.livecomponents.annotations.State;
+import fr.kainovaii.obsidian.livecomponents.core.LiveComponent;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@LiveComponent
-public class Poll extends fr.kainovaii.obsidian.core.web.component.core.LiveComponent {
-    
+@LiveComponentImpl
+public class Poll extends LiveComponent
+{
     @State
     private String question = "What's your favorite programming paradigm?";
     

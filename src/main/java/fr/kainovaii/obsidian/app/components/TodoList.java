@@ -1,14 +1,15 @@
 package fr.kainovaii.obsidian.app.components;
 
-import fr.kainovaii.obsidian.core.web.component.annotations.LiveComponent;
-import fr.kainovaii.obsidian.core.web.component.annotations.State;
+import fr.kainovaii.obsidian.livecomponents.annotations.LiveComponentImpl;
+import fr.kainovaii.obsidian.livecomponents.annotations.State;
+import fr.kainovaii.obsidian.livecomponents.core.LiveComponent;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@LiveComponent
-public class TodoList extends fr.kainovaii.obsidian.core.web.component.core.LiveComponent
+@LiveComponentImpl
+public class TodoList extends LiveComponent
 {
     @State
     private List<Todo> todos = new ArrayList<>();

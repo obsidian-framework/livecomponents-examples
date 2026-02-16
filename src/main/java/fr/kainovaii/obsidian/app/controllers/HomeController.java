@@ -1,10 +1,10 @@
 package fr.kainovaii.obsidian.app.controllers;
 
-import fr.kainovaii.obsidian.core.web.component.session.SessionMiddleware;
-import fr.kainovaii.obsidian.core.web.controller.BaseController;
-import fr.kainovaii.obsidian.core.web.controller.Controller;
-import fr.kainovaii.obsidian.core.web.middleware.Before;
-import fr.kainovaii.obsidian.core.web.route.methods.GET;
+import fr.kainovaii.obsidian.http.controller.BaseController;
+import fr.kainovaii.obsidian.http.controller.annotations.Controller;
+import fr.kainovaii.obsidian.http.middleware.annotations.Before;
+import fr.kainovaii.obsidian.livecomponents.session.SessionMiddleware;
+import fr.kainovaii.obsidian.routing.methods.GET;
 import spark.Request;
 import spark.Response;
 
