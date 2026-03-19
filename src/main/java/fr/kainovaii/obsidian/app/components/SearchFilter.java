@@ -1,8 +1,9 @@
 package fr.kainovaii.obsidian.app.components;
 
-import fr.kainovaii.obsidian.livecomponents.annotations.LiveComponentImpl;
-import fr.kainovaii.obsidian.livecomponents.annotations.State;
-import fr.kainovaii.obsidian.livecomponents.core.LiveComponent;
+import com.obsidian.core.livecomponents.annotations.Action;
+import com.obsidian.core.livecomponents.annotations.LiveComponentImpl;
+import com.obsidian.core.livecomponents.annotations.State;
+import com.obsidian.core.livecomponents.core.LiveComponent;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -24,10 +25,12 @@ public class SearchFilter extends LiveComponent
         put("DevOps", List.of("Docker", "Kubernetes", "Jenkins", "Terraform", "Ansible"));
     }};
 
+    @Action
     public void selectCategory(String category) {
         this.category = category;
     }
     
+    @Action
     public void clearAll() {
         this.search = "";
         this.category = "all";

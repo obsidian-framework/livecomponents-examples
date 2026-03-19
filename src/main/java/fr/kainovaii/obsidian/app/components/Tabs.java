@@ -1,8 +1,9 @@
 package fr.kainovaii.obsidian.app.components;
 
-import fr.kainovaii.obsidian.livecomponents.annotations.LiveComponentImpl;
-import fr.kainovaii.obsidian.livecomponents.annotations.State;
-import fr.kainovaii.obsidian.livecomponents.core.LiveComponent;
+import com.obsidian.core.livecomponents.annotations.Action;
+import com.obsidian.core.livecomponents.annotations.LiveComponentImpl;
+import com.obsidian.core.livecomponents.annotations.State;
+import com.obsidian.core.livecomponents.core.LiveComponent;
 
 import java.util.Map;
 
@@ -26,6 +27,7 @@ public class Tabs extends LiveComponent
         "security", "Update your password, enable two-factor authentication, and manage active sessions."
     );
 
+    @Action
     public void switchTab(String tab) {
         if (tabs.containsKey(tab)) {
             this.activeTab = tab;

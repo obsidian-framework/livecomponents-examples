@@ -1,8 +1,9 @@
 package fr.kainovaii.obsidian.app.components;
 
-import fr.kainovaii.obsidian.livecomponents.annotations.LiveComponentImpl;
-import fr.kainovaii.obsidian.livecomponents.annotations.State;
-import fr.kainovaii.obsidian.livecomponents.core.LiveComponent;
+import com.obsidian.core.livecomponents.annotations.Action;
+import com.obsidian.core.livecomponents.annotations.LiveComponentImpl;
+import com.obsidian.core.livecomponents.annotations.State;
+import com.obsidian.core.livecomponents.core.LiveComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,26 +17,32 @@ public class Notification extends LiveComponent
     @State
     private int nextId = 1;
     
+    @Action
     public void addSuccess() {
         notifications.add(new NotificationItem(nextId++, "success", "Success!", "Operation completed successfully."));
     }
     
+    @Action
     public void addError() {
         notifications.add(new NotificationItem(nextId++, "error", "Error!", "Something went wrong. Please try again."));
     }
     
+    @Action
     public void addWarning() {
         notifications.add(new NotificationItem(nextId++, "warning", "Warning!", "Please review your recent changes."));
     }
     
+    @Action
     public void addInfo() {
         notifications.add(new NotificationItem(nextId++, "info", "Info", "New features are now available."));
     }
 
+    @Action
     public void dismiss(int id) {
         notifications.removeIf(n -> n.id == id);
     }
     
+    @Action
     public void dismissAll() {
         notifications.clear();
     }

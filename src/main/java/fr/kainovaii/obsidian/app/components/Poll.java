@@ -1,8 +1,9 @@
 package fr.kainovaii.obsidian.app.components;
 
-import fr.kainovaii.obsidian.livecomponents.annotations.LiveComponentImpl;
-import fr.kainovaii.obsidian.livecomponents.annotations.State;
-import fr.kainovaii.obsidian.livecomponents.core.LiveComponent;
+import com.obsidian.core.livecomponents.annotations.Action;
+import com.obsidian.core.livecomponents.annotations.LiveComponentImpl;
+import com.obsidian.core.livecomponents.annotations.State;
+import com.obsidian.core.livecomponents.core.LiveComponent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +28,7 @@ public class Poll extends LiveComponent
     @State
     private String selectedOption = null;
 
+    @Action
     public void vote(String option) {
         if (!hasVoted && options.containsKey(option)) {
             options.put(option, options.get(option) + 1);
@@ -35,6 +37,7 @@ public class Poll extends LiveComponent
         }
     }
     
+    @Action
     public void reset() {
         hasVoted = false;
         selectedOption = null;
