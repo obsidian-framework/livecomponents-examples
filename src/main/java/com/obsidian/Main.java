@@ -1,4 +1,4 @@
-package fr.kainovaii.obsidian;
+package com.obsidian;
 
 
 import com.obsidian.core.core.Obsidian;

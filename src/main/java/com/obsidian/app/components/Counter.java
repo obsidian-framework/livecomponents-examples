@@ -1,4 +1,4 @@
-package fr.kainovaii.obsidian.app.components;
+package com.obsidian.app.components;
 
 import com.obsidian.core.livecomponents.annotations.Action;
 import com.obsidian.core.livecomponents.annotations.LiveComponentImpl;
